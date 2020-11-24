@@ -1,0 +1,6 @@
+pring:
+  application:
+    name: gl-social-network
+  cloud:
+    config:
+      failFast: true
