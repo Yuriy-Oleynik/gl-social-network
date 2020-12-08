@@ -1,1 +1,23 @@
-
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    initialization-mode: always
+    username: root
+    password: 1488
+    url: jdbc:mysql://localhost:3306/gl-social-network-db?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    show-sql: true
+  mail:
+    host: email-smtp.us-east-2.amazonaws.com
+    username: AKIARC5EZU4HVSFICSKT
+    password: BEVOeRovQ6PaE8EyN3HW3FfcmN7ywI8auW/uSpxkFQn6
+    port: 25
+    protocol: smtp
+jwt:
+  expiration:
+    time: 90000
