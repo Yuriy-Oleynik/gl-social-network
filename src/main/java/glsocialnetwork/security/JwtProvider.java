@@ -18,7 +18,6 @@ import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.security.UnrecoverableKeyException;
 import java.security.cert.CertificateException;
-import java.sql.Date;
 import java.time.Instant;
 
 import static io.jsonwebtoken.Jwts.parser;
@@ -49,7 +48,7 @@ public class JwtProvider {
                 .setSubject(principal.getUsername())
                 .setIssuedAt(from(Instant.now()))
                 .signWith(getPrivateKey())
-                .setExpiration(Date.from(Instant.now().plusMillis(jwtExpirationInMillis)))
+                .setExpiration(from(Instant.now().plusMillis(jwtExpirationInMillis)))
                 .compact();
     }
 
@@ -58,7 +57,7 @@ public class JwtProvider {
                 .setSubject(username)
                 .setIssuedAt(from(Instant.now()))
                 .signWith(getPrivateKey())
-                .setExpiration(Date.from(Instant.now().plusMillis(jwtExpirationInMillis)))
+                .setExpiration(from(Instant.now().plusMillis(jwtExpirationInMillis)))
                 .compact();
     }
 
