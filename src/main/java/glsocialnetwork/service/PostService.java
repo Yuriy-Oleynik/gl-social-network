@@ -38,6 +38,10 @@ public class PostService {
         postRepository.save(postMapper.map(postRequest, community, authService.getCurrentUser()));
     }
 
+    public void deletePost(Long id) {
+        postRepository.deleteById(id);
+    }
+
     @Transactional(readOnly = true)
     public PostResponse getPost(Long id) {
         Post post = postRepository.findById(id)
