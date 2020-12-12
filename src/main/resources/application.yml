@@ -16,7 +16,7 @@ spring:
     host: email-smtp.us-east-2.amazonaws.com
     username: AKIARC5EZU4HVSFICSKT
     password: BEVOeRovQ6PaE8EyN3HW3FfcmN7ywI8auW/uSpxkFQn6
-    port: 25
+    port: 587
     protocol: smtp
 jwt:
   expiration:
