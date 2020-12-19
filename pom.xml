@@ -187,6 +187,7 @@
 				</executions>
 			</plugin>
 		</plugins>
+		<finalName>docker-spring-api</finalName>
 	</build>
 
 </project>
