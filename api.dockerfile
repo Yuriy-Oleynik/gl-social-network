@@ -1,6 +1,5 @@
 FROM openjdk:8
 LABEL maintainer="yurikua11@gmail.com"
-ADD target/docker-spring-api.jar docker-spring-api.jar
 VOLUME /home/server
 WORKDIR /home/server
 COPY ./ /home/server/
