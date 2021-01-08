@@ -33,6 +33,7 @@ public class PostControllerTest {
                 .communityName("some community")
                 .description("some description")
                 .url("www.google.com")
+                .imageKey("https://gl-social-network-aws-bucket.s3.us-east-2.amazonaws.com/336341.jpg")
                 .build();
         doNothing().when(postService).save(post);
         ResponseEntity<Void> response = postController.createPost(post);

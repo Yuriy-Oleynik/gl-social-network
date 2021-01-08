@@ -21,3 +21,10 @@ spring:
 jwt:
   expiration:
     time: 90000
+aws:
+  credentials:
+    access-key: AKIARC5EZU4H74AWRB76
+    secret-key: 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
+    region: us-east-2
+    bucket-name: gl-social-network-aws-bucket
+    image-url: https://gl-social-network-aws-bucket.s3.us-east-2.amazonaws.com/

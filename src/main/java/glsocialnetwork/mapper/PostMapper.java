@@ -14,6 +14,7 @@ import glsocialnetwork.service.AuthService;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.util.Optional;
 
@@ -30,12 +31,16 @@ public abstract class PostMapper {
     @Autowired
     private AuthService authService;
 
+    @Value("${aws.credentials.image-url}")
+    private String awsUrl;
+
 
     @Mapping(target = "createdDate", expression = "java(java.time.Instant.now())")
     @Mapping(target = "description", source = "postRequest.description")
     @Mapping(target = "community", source = "community")
     @Mapping(target = "voteCount", constant = "0")
     @Mapping(target = "user", source = "user")
+    @Mapping(target = "imageKey", expression = "java(addAwsUrl(postRequest))")
     public abstract Post map(PostRequest postRequest, Community community, User user);
 
     @Mapping(target = "id", source = "postId")
@@ -45,6 +50,7 @@ public abstract class PostMapper {
     @Mapping(target = "duration", expression = "java(getDuration(post))")
     @Mapping(target = "upVote", expression = "java(isPostUpVoted(post))")
     @Mapping(target = "downVote", expression = "java(isPostDownVoted(post))")
+    @Mapping(target = "imageKey", source = "imageKey")
     public abstract PostResponse mapToDto(Post post);
 
     Integer commentCount(Post post) {
@@ -72,5 +78,9 @@ public abstract class PostMapper {
                     .isPresent();
         }
         return false;
+    }
+
+    String addAwsUrl(PostRequest postRequest) {
+        return awsUrl + postRequest.getImageKey();
     }
 }

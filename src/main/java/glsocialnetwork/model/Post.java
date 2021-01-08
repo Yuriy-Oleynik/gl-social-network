@@ -49,4 +49,7 @@ public class Post {
     private List<Vote> votes;
     @OneToMany(fetch = LAZY, cascade = CascadeType.ALL, mappedBy = "post")
     private List<Comment> comments;
+    @Nullable
+    @Lob
+    private String imageKey;
 }
