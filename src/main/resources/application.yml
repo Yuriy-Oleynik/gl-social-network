@@ -7,7 +7,7 @@ spring:
     url: jdbc:mysql://gl-social-network-db.c2qd8r1qkmdx.eu-central-1.rds.amazonaws.com:3306/gl-social-network-db?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: validate
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
